@@ -1,0 +1,232 @@
+<!-- <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Sobre</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Elenco</li>
+  </ol>
+</nav> -->
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Voltar
+    </a>
+  </div>
+  <div class="col-md-6"></div>
+</div>
+<div class="card">
+  <div class="card-body mb-0">
+    <span class="svg-pitch svg-rem-6 float-right mr-3"></span>
+    <h1 class="card-title mb-3">Elenco</h1>
+    <h6 class="card-subtitle mb-5 text-muted mb-4">
+      lista de Jogadores elencados
+    </h6>
+
+    <nav>
+      <div class="nav nav-tabs nav-fill mb-3" id="nav-tab" role="tablist">
+        <a
+          class="nav-item nav-link active"
+          id="nav-esporte-tab"
+          data-toggle="tab"
+          href="#nav-esporte"
+          role="tab"
+          aria-controls="nav-esporte"
+          aria-selected="true"
+          (click)="getJogadoresEsporte()"
+          >Esporte</a
+        >
+        <a
+          class="nav-item nav-link"
+          id="nav-veterano-tab"
+          data-toggle="tab"
+          href="#nav-veterano"
+          role="tab"
+          aria-controls="nav-veterano"
+          aria-selected="false"
+          (click)="getJogadoresVeterano()"
+          >Veterano</a
+        >
+        <a
+          class="nav-item nav-link"
+          id="nav-comissao-tec-tab"
+          data-toggle="tab"
+          href="#nav-comissao-tec"
+          role="tab"
+          aria-controls="nav-comissao-tec"
+          aria-selected="false"
+          (click)="getComissaoTecnica()"
+          >Commissão Téc.</a
+        >
+      </div>
+    </nav>
+
+    <div class="tab-content  mb-5" id="nav-tabContent">
+      <!-- Esporte -->
+      <div
+        class="tab-pane fade show active"
+        id="nav-esporte"
+        role="tabpanel"
+        aria-labelledby="nav-esporte-tab"
+      >
+        <ul class="list-group list-group-flush mb-4">
+          <li
+            *ngFor="let j of jogadoresEsporte"
+            class="list-group-item list-group-item-action"
+          >
+            <div class="row">
+              <div class="float-left w-75">
+                <a
+                  routerLink="/elenco/jogador/{{ j.id }}"
+                  [title]="j.nome"
+                  class="float-left"
+                >
+                  <img [src]="j.imgUrl" class="rounded-circle" [alt]="j.nome" />
+                  <span class="ml-3">{{ j.nome }}</span>
+                </a>
+              </div>
+
+              <div class="align-self-center w-25">
+                <small class="float-left text-muted py-auto">{{
+                  j.posicoes[0].posicao
+                }}</small>
+                <span
+                  class="svg-rem-2 float-right "
+                  [ngClass]="{
+                    'svg-goalkeeper-1': j.posicoes[0].posicaoBase === 0,
+                    'svg-football-player':
+                      j.posicoes[0].posicaoBase > 0 &&
+                      j.posicoes[0].posicaoBase < 4,
+                    'svg-coach': j.posicoes[0].posicaoBase === 4
+                  }"
+                >
+                </span>
+              </div>
+            </div>
+          </li>
+
+          <!-- <li class="list-group-item list-group-item-action">
+            <a href="/elenco/jogador/1">
+              <i class="far fa fa-user-circle"></i>
+              <span class="ml-3">Everton Ribeiro</span>
+              <span class="float-right svg-goalkeeper svg-rem-2"> </span>
+            </a>
+          </li>
+          <li class="list-group-item list-group-item-action">
+            <a href="/elenco/jogador/2">
+              <i class="far fa fa-user-circle"></i>
+              <span class="ml-3">Robson Santos</span>
+              <span class="float-right svg-football-player svg-rem-2"></span>
+            </a>
+          </li>
+          <li class="list-group-item list-group-item-action">
+            <a href="/elenco/jogador/3">
+              <i class="far fa fa-user-circle"></i>
+              <span class="ml-3">Anderson Alves</span>
+              <span class="float-right svg-football-player svg-rem-2"></span>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+
+      <!-- Veterano -->
+      <div
+        class="tab-pane fade"
+        id="nav-veterano"
+        role="tabpanel"
+        aria-labelledby="nav-veterano-tab"
+      >
+        <ul class="list-group list-group-flush mb-4">
+          <li
+            *ngFor="let j of jogadoresVeterano"
+            class="list-group-item list-group-item-action"
+          >
+            <div class="row">
+              <div class="float-left w-75">
+                <a routerLink="/elenco/jogador/{{ j.id }}" [title]="j.nome">
+                  <img [src]="j.imgUrl" class="rounded-circle" [alt]="j.nome" />
+                  <span class="ml-3">{{ j.nome }}</span>
+                </a>
+              </div>
+              <div class="align-self-center w-25">
+                <small class="float-left text-muted py-auto">{{
+                  j.posicoes[0].posicao
+                }}</small>
+                <span
+                  class="float-right svg-rem-2 float-right"
+                  [ngClass]="{
+                    'svg-goalkeeper-1': j.posicoes[0].posicaoBase === 0,
+                    'svg-football-player':
+                      j.posicoes[0].posicaoBase > 0 &&
+                      j.posicoes[0].posicaoBase < 4,
+                    'svg-coach': j.posicoes[0].posicaoBase === 4
+                  }"
+                >
+                </span>
+              </div>
+            </div>
+          </li>
+
+          <!-- <li class="list-group-item list-group-item-action">
+            <i class="far fa fa-user-circle"></i>
+            <span class="ml-3">Everton Ribeiro</span>
+            <span class="float-right svg-goalkeeper svg-rem-2"> </span>
+          </li>
+          <li class="list-group-item list-group-item-action">
+            <i class="far fa fa-user-circle"></i>
+            <span class="ml-3">Edson Santos</span>
+            <span class="float-right svg-football-player svg-rem-2"> </span>
+          </li>
+          <li class="list-group-item list-group-item-action">
+            <i class="far fa fa-user-circle"></i>
+            <span class="ml-3">Anderson Alves</span>
+            <span class="float-right svg-football-player svg-rem-2"> </span>
+          </li> -->
+        </ul>
+      </div>
+
+      <!-- Comissão técnica -->
+      <div
+        class="tab-pane fade"
+        id="nav-comissao-tec"
+        role="tabpanel"
+        aria-labelledby="nav-comissao-tec-tab"
+      >
+        <ul class="list-group list-group-flush mb-4">
+          <li
+            *ngFor="let j of comissaoTec"
+            class="list-group-item list-group-item-action"
+          >
+            <div class="row d-flex">
+              <div class="float-left w-75">
+                <a routerLink="/elenco/jogador/{{ j.id }}" [title]="j.nome">
+                  <img [src]="j.imgUrl" class="rounded-circle" [alt]="j.nome" />
+                  <span class="ml-3">{{ j.nome }}</span>
+                </a>
+              </div>
+              <div class="align-self-center w-25">
+                <small class="float-left text-muted py-auto">Técnico</small>
+                <span
+                  class="float-right svg-rem-2"
+                  [ngClass]="{
+                    'svg-goalkeeper-1': j.posicoes[0].posicaoBase === 0,
+                    'svg-football-player':
+                      j.posicoes[0].posicaoBase > 0 &&
+                      j.posicoes[0].posicaoBase < 4,
+                    'svg-coach': j.posicoes[0].posicaoBase === 4
+                  }"
+                >
+                </span>
+              </div>
+            </div>
+          </li>
+          <!-- <li class="list-group-item list-group-item-action">
+            <i class="far fa fa-user-circle"></i>
+            <span class="ml-3">Paulo Sérgio</span>
+            <span class="float-right svg-coach svg-rem-2"> </span>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- <a href="#" class="card-link ">Card link</a>
+    <a href="#" class="card-link ">Another link</a> -->
+  </div>
+</div>

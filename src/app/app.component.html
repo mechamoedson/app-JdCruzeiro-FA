@@ -1,0 +1,10 @@
+<app-navbar></app-navbar>
+
+<div class="container container-app mb-4">
+  <ul>
+    <li class="text" *ngFor="let item of (items | async)">{{ item.name }}</li>
+  </ul>
+  <flash-messages></flash-messages>
+  <router-outlet></router-outlet>
+</div>
+<div class="mt-5"><app-footer></app-footer></div>

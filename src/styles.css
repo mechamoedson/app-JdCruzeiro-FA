@@ -1,0 +1,99 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  background: url(assets/time-capa/capa-002.jpg);
+
+  /* color: white !important; */
+}
+
+.container-app {
+  min-height: 576px;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* min-height: 700px; */
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.border-green-separator-top {
+  border-top: rgba(16, 255, 16, 0.9) solid 3px;
+}
+
+.border-blue-separator {
+  border: rgba(0, 255, 255, 0.87) solid 3px;
+}
+
+.border-blue-separator-bottom {
+  border-bottom: rgba(0, 255, 255, 0.87) solid 3px;
+}
+
+.border-blue-separator-top {
+  border-top: rgba(0, 255, 255, 0.87) solid 3px;
+}
+
+/* icons */
+/* tamanhos */
+.svg-rem {
+  width: 1rem;
+}
+
+.svg-rem-2 {
+  width: 2rem;
+}
+
+.svg-rem-3 {
+  width: 3rem;
+}
+
+.svg-rem-4 {
+  width: 4rem;
+}
+
+.svg-rem-5 {
+  width: 5rem;
+}
+
+.svg-rem-6 {
+  width: 6rem;
+}
+
+/* links */
+.svg-team {
+  content: url(assets/svg/023-team.svg);
+}
+
+.svg-pennant {
+  content: url(assets/svg/013-pennant.svg);
+}
+
+.svg-goalkeeper-1 {
+  content: url(assets/svg/010-goalkeeper-1.svg);
+}
+
+.svg-goalkeeper {
+  content: url(assets/svg/009-goalkeeper.svg);
+}
+
+.svg-football-player {
+  content: url(assets/svg/005-football-player.svg);
+}
+
+.svg-coach {
+  content: url(assets/svg/003-coach.svg);
+}
+
+.svg-pitch {
+  content: url(assets/svg/018-pitch.svg);
+}
+
+.svg-monitor {
+  content: url(assets/svg/015-monitor.svg);
+}
+
+.jpg-logo-fb-001 {
+  content: url(assets/jpg-logo-fb-001.jpg);
+}

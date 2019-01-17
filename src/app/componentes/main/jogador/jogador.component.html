@@ -1,0 +1,60 @@
+<!-- <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Sobre</a></li>
+    <li class="breadcrumb-item"><a routerLink="/elenco">Elenco</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Jogador</li>
+  </ol>
+</nav> -->
+<div class="row">
+    <div class="col-md-6">
+      <a routerLink="/elenco" class="btn btn-link">
+        <i class="fa fa-arrow-circle-o-left"></i> Voltar
+      </a>
+    </div>
+    <div class="col-md-6"></div>
+  </div>
+
+<div class="row justify-content-center">
+  <div class="card border-light mb-3 w-75">
+    <!-- <div class="card-header">
+      <h6 class="card-title">Jogador</h6>
+    </div> -->
+    <!-- <img src="" class="card-img-top" alt="..."> -->
+    <!-- teste -->
+    <!-- <svg
+      class="bd-placeholder-img card-img-top"
+      width="100%"
+      height="180"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMidYMid slice"
+      focusable="false"
+      role="img"
+      aria-label="Placeholder: Image cap"
+    >
+      <title>Placeholder</title>
+      <rect fill="#868e96" width="100%" height="100%"></rect>
+      <text fill="#dee2e6" dy=".3em" x="50%" y="50%">imagem do jogador</text>
+    </svg> -->
+    <img [src]="jogador.imgUrl" class="bd-placeholder-img card-img-top" [alt]="jogador.nome" width="100%"
+    height="180" />
+    <div class="card-body line-green-separator-top">
+      <h6 class="card-subtitle mb-2 text-muted">{{jogador.nome}}</h6>
+
+      <ul class="list-group list-group-flush mb-4">
+        <li class="list-group-item list-group-item-action">
+          <p class="card-text">Idade:</p>
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <p class="card-text">Altura: {{jogador.altura}}</p>
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <p class="card-text">Categoria: {{jogador.Categoria === 1 ? 'Esporte' : 'Veterano'}}</p>
+        </li>
+        <li *ngFor="let p of jogador.posicoes" class="list-group-item list-group-item-action">
+          <p class="card-text">Posicionamento: {{p.posicao}}</p>
+        </li>
+        <li class="list-group-item"></li>
+      </ul>
+    </div>
+  </div>
+</div>

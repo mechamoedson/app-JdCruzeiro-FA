@@ -1,0 +1,12 @@
+.body-shadow {
+  background-image: url(../../../assets/time-capa/capa-001.jpg);
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  min-height: 200px;
+  /* border-bottom: yellow 2px solid; */
+  
+}

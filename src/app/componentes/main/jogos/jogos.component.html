@@ -1,0 +1,19 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Sobre</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Jogos</li>
+  </ol>
+</nav>
+
+<div class="card mb-5" *ngFor="let j of (jogos | async)">
+  <div class="card-body">
+    <h5 class="card-title">{{ j.timeMandante }} x {{ j.timeVizitante }}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item align-center">
+      {{ j.data.toDate() | date: "dd/MM/yyyy" }}
+    </li>
+    <li class="list-group-item">Campo: {{ j.local.nome }}</li>
+    <li class="list-group-item">{{ j.local.endereco }}</li>
+  </ul>
+</div>
